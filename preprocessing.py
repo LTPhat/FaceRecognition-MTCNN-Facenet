@@ -60,7 +60,7 @@ def split_resized(root_url, resized_face, resized_url, name, test_size):
     if os.path.exists(root_url + "\\Test") == False:
         os.mkdir(root_url + "\\Test")
 
-    train, test = train_test_split(resized_face,test_size = test_size)
+    train, test = train_test_split(resized_face,test_size = test_size, random_state= 42, shuffle= True)
     if os.path.exists(root_url + "\\Train" + "\\{}".format(name)) == False:
         os.mkdir(root_url + "\\Train" + "\\{}".format(name))
     #Save train img
@@ -80,9 +80,10 @@ def train_test(resized_face):
     train_set, test_set = train_test_split(resized_face, test_size = 0.3)
     return train_set, test_set
 
+#Function to extract faces, resize and save to resized folder of dataset
 def extract_face_fromdir(name_list):
-    face_dict = {}
-    file_name_list = {}
+    face_dict = {}       #Store img array
+    file_name_list = {}  #Store img filename
     # Create dictionary to store resized img
     for name in name_list:
         face_dict[name] = []
@@ -101,6 +102,7 @@ def extract_face_fromdir(name_list):
                 os.makedirs(root_url + "\\Rezised"+ "\\{}".format(name))
             file_img.save(root_url + "\\Rezised"+ "\\{}".format(name)+ "\\{}".format(img),format = "png")
     return file_name_list, face_dict  
+
 
 def train_test_seperate():
     path = "D:\MTCNN\Rezised"
