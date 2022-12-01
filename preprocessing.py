@@ -15,8 +15,8 @@ sys.path.append("D:\MTCNN")
 root_url = "D:\MTCNN"
 root_raw_img = "D:\MTCNN\Raw_images"
 detector = MTCNN()
-name_list = ['Hieu', 'Hung', 'HDuc', 'Kien', 'Linh', 'Quan', 'Thang', 'Truong', 'Tuan'
-        ,'Tan', 'VietDuc', 'Van', 'XuanAnh','Duc']
+name_list = ['Duc', 'HDuc', 'Hieu', 'Hung', 'Kien', 'Linh', 'Quan', 'Tan', 'Thang'
+            ,'Truong', 'Tuan', 'Van', 'VietDuc','XuanAnh']
 
 
 def display_image(imgfile):
