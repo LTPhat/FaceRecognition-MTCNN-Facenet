@@ -11,8 +11,7 @@ import sys
 sys.path.append("D:\MTCNN")
 
 #Define url
-
-root_url = "D:\MTCNN"
+root_url = "D:\MTCNN" #Change root_url according to computer directory
 root_raw_img = "D:\MTCNN\Raw_images"
 detector = MTCNN()
 name_list = ['Duc', 'HDuc', 'Hieu', 'Hung', 'Kien', 'Linh', 'Quan', 'Tan', 'Thang'
