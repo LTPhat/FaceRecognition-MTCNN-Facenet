@@ -1,0 +1,7 @@
+numpy==1.19.2
+opencv-python==4.5.1.48
+Tensorflow 2.9
+numpy
+opencv-python
+mtcnn
+scikit-learn
