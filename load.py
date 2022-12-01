@@ -10,7 +10,7 @@ name_list = ['Duc', 'HDuc', 'Hieu', 'Hung', 'Kien', 'Linh', 'Quan', 'Tan', 'Than
             ,'Truong', 'Tuan', 'Van', 'VietDuc','XuanAnh']
 
 def load_face(dir):
-    faces = list()
+    faces = list()  #Store img arr
     for filename in os.listdir(dir):
         path = dir + "\\" + filename
         img, resized_img = face_extract(path)
