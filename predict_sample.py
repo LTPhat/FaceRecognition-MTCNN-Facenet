@@ -10,7 +10,7 @@ from create_embedding import train_X, train_y, test_X, test_y
 # train_X of model are images
 
 
-#Predict a sample from testset
+# Predict a sample from testset
 name_list = ['Duc', 'HDuc', 'Hieu', 'Hung', 'Kien', 'Linh', 'Quan', 'Tan', 'Thang'
             ,'Truong', 'Tuan', 'Van', 'VietDuc','XuanAnh']
 
@@ -35,8 +35,10 @@ fig = plt.figure(figsize = (5,5))
 if np.round(np.max(yhat_prob[0]),2) < 0.4:
     plt.imshow(random_face_img)
     plt.title("Predict: {} -- Actual: Unknown ()".format(class_predict))
+    plt.axis("off")
     plt.show()
 else:
     plt.imshow(random_face_img)
-    plt.title("Predict: {} -- Actual: {} ({})".format(class_predict, np.round(np.max(yhat_prob[0]),2), random_face_class))
+    plt.title("Predict: {} -- Actual: {} (Confidence: {})".format(class_predict, random_face_class, np.round(np.max(yhat_prob[0]),2)))
+    plt.axis("off")
     plt.show()
