@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score
 import pickle
 from train import X_train, y_train, X_test, y_test
 # X_train of train.py are emmbeded vectors
-from model import train_X, train_y, test_X, test_y
+from create_embedding import train_X, train_y, test_X, test_y
 # train_X of model are images
 
 
