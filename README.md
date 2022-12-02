@@ -84,7 +84,7 @@ $$L = \sum \limits^{N}_{i} \left[ || f\left(x_i^{a}\right)-f\left(x_i^{p}\right)
 
 - Train embedding vectors with ``SVM`` classifier by running ``train.py``.
 
-- Predict samples by running ``predict_samples.py``.
+- Predict one random sample in test set by running ``predict_samples.py``.
 
 # Some results
 
