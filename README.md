@@ -86,6 +86,13 @@ $$L = \sum \limits^{N}_{i} \left[ || f\left(x_i^{a}\right)-f\left(x_i^{p}\right)
 
 - Predict samples by running ``predict_samples.py``.
 
+# Some results
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/res1.png)
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/res2.png)
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/res3.png)
 ## Note
 To test with new images, create folder containings all new images, changes link to this new folder and run ``load.py``. After that, run  ``predict_samples.py`` to get prediction for new images.
 
