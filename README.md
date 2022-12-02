@@ -64,7 +64,7 @@ The triplot loss function always takes 3 images as input and in all cases we exp
 
 $$ || f\left(x_i^{a}\right)-f\left(x_i^{p}\right) ||^{2} + \alpha < || f\left(x_i^{a}\right)-f\left(x_i^{n}\right) ||^{2} $$
             
-$||$ is Euclidean, $f\left(x_i^{a}\right)$ is the embedding vector of x_i^{a}.
+$||$ is Euclidean, $f\left(x_i^{a}\right)$ is the embedding vector of $x_i^{a}$.
 
 Loss function proposed in original paper:
 
