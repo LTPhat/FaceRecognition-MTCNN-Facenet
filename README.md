@@ -64,7 +64,7 @@ The triplot loss function always takes 3 images as input and in all cases we exp
 
 $$ || f\left(x_i^{a}\right)-f\left(x_i^{p}\right) ||^{2} + \alpha < || f\left(x_i^{a}\right)-f\left(x_i^{n}\right) ||^{2} $$
             
-$||$ is Euclidean, $f\left(x_i^{a}\right)$ is the embedding vector of x_i^{a}.
+$||$ is Euclidean, $f\left(x_i^{a}\right)$ is the embedding vector of $x_i^{a}$.
 
 Loss function proposed in original paper:
 
@@ -84,8 +84,15 @@ $$L = \sum \limits^{N}_{i} \left[ || f\left(x_i^{a}\right)-f\left(x_i^{p}\right)
 
 - Train embedding vectors with ``SVM`` classifier by running ``train.py``.
 
-- Predict samples by running ``predict_samples.py``.
+- Predict one random sample in test set by running ``predict_samples.py``.
 
+# Some results
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/res1.png)
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/res2.png)
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/res3.png)
 ## Note
 To test with new images, create folder containings all new images, changes link to this new folder and run ``load.py``. After that, run  ``predict_samples.py`` to get prediction for new images.
 
