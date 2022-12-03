@@ -21,7 +21,7 @@ def encoder():
 
 if __name__ == "__main__":
     X_train_encode, y_train_encode, X_test_encode, y_test_encode = encoder()
-    model = SVC(kernel='linear', probability= True)
+    model = SVC(kernel='linear', probability= True, random_state = 42)
     model.fit(X_train_encode, y_train_encode)
 
     yhat_train = model.predict(X_train_encode)
