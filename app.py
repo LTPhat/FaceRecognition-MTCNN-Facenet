@@ -40,7 +40,7 @@ def set_background(png_file):
     </style>
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
-set_background('D:\MTCNN\Bg1.jpg')
+set_background('Bg1.jpg')
 
 def process_input(filename, target_size = (160,160)):
     """
@@ -98,7 +98,7 @@ def main():
                 unsafe_allow_html=True)
     html_class_term = """
     <div style="background-color: white ;padding:5px; margin: 20px">
-    <h5 style="color:black;text-align:center; font-size: 10 px"> There are 14 class to predict: ['Duc', 'HDuc', 'Hieu', 'Hung', 'Kien', 'Linh', 'Quan', 'Tan', 'Thang'
+    <h5 style="color:black;text-align:center; font-size: 10 px"> There are 14 classes in the dataset: ['Duc', 'HDuc', 'Hieu', 'Hung', 'Kien', 'Linh', 'Quan', 'Tan', 'Thang'
             ,'Truong', 'Tuan', 'Van', 'VietDuc', 'XuanAnh']</h5>
     """
     st.markdown(html_class_term, unsafe_allow_html=True)
