@@ -1,6 +1,8 @@
 # Face Recognition With MTCNN And Facenet
 Personal project for ``CourseWork 2`` in AI4E course.
 
+`Finished time:` 03/12/2022.
+
 ## About the dataset
 
 Videos containing faces of many people at different angles. 
