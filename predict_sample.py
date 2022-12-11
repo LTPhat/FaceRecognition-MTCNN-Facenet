@@ -22,7 +22,7 @@ selection = np.random.choice([i for i in range(X_test.shape[0])])
 random_face_img = test_X[selection]
 random_face_emb = X_test[selection]
 random_face_class = y_test[selection]
-
+print(random_face_emb)
 samples = np.expand_dims(random_face_emb, axis=0)
 yhat_class = loaded_model.predict(samples)
 yhat_prob = loaded_model.predict_proba(samples)
