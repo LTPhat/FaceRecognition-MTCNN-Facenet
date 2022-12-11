@@ -2,8 +2,9 @@ from PIL import Image
 import numpy as np
 from mtcnn import MTCNN
 import matplotlib.pyplot as plt
+import os
+from preprocessing import *
 detector = MTCNN()
-
 img = Image.open("D:\MTCNN\images\Duc\Duc0.png")
 img = np.array(img)
 result = detector.detect_faces(img)
@@ -20,8 +21,6 @@ import os
 a = os.listdir("D:\MTCNN\images\Duc")
 print(a)
 print(len(a))
-from preprocessing import *
-import os
 def load_face(dir):
     faces = []
     for filename in os.listdir(dir):
