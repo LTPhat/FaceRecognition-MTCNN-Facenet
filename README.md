@@ -1,4 +1,4 @@
-# Face Recognition With MTCNN And Facenet
+# Face Recognition With MTCNN And FaceNet
 Personal project for ``CourseWork 2`` in AI4E course.
 
 `Finished time:` 03/12/2022.
@@ -97,6 +97,50 @@ $$L = \sum \limits^{N}_{i} \left[ || f\left(x_i^{a}\right)-f\left(x_i^{p}\right)
 ![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/res3.png)
 ## Note
 To test with new images, create folder containings all new images, changes link to this new folder and run ``load.py``. After that, run  ``predict_samples.py`` to get prediction for new images.
+
+## Deploy on Streamlit App
+Streamlit is an open-source app framework for Machine Learning and Data Science teams.
+
+```sh
+streamlit run app.py
+```
+
+Some web images and results:
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/web_surface.png)
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/right_predict0.png)
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/right_predict1.png)
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/right_predict.png)
+
+## Comments
+
+### Pros
+- Good performence with very high accuracy.
+
+- Acceptable runtime.
+
+- Easy to train.
+
+- Simple source code.
+
+### Cons
+
+- Simple dataset, extracting frames from videos somehow makes train and test images quite close --> Result in high accuracy and sometime unrealistic.
+
+- Accuracy on SVM classifier may reduce with more classes. Applying classifier to embeded vector, we have to retrain the whole classifier when there are new classes in the dataset.
+
+- Face problems when predicting person that is not in dataset, which is sometimes unacceptable in real-life problems, it can be partly solved by setting threshold for predict probability.
+
+### Development orientation
+
+- Get more data with various aspects.
+
+- Apply cosine similarity between embeded vector of test images and those of training images to determine which class that test image belongs to. (Replace SVM classifier).
+
+- Try on more general model (ArcFace, DeepFace ...). 
 
 ## References
 [1] Joint Face Detection and Alignment using
