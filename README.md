@@ -88,6 +88,8 @@ $$L = \sum \limits^{N}_{i} \left[ || f\left(x_i^{a}\right)-f\left(x_i^{p}\right)
 
 - Predict one random sample in test set by running ``predict_samples.py``.
 
+- Predict batch of images in test set by running ``predict_batch.py``.
+
 # Some results
 
 ![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/res1.png)
@@ -114,6 +116,8 @@ Some web images and results:
 ![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/right_predict1.png)
 
 ![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/right_predict.png)
+
+![alt text](https://github.com/LTPhat/FaceRecognition_MTCNN_Facenet/blob/master/Images/wrong_predict.png)
 
 ## Comments
 
