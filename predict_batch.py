@@ -9,9 +9,11 @@ from create_embedding import train_X, train_y, test_X, test_y
 batch_size = 32
 file_name = "classify.sav"
 loaded_model = pickle.load(open(file_name, "rb"))
-
+# Take an random index of test set 
 random_index = [np.random.randint(0, len(X_test)) for i in range(0, batch_size)]
+# Take respective embedded vector from test set 
 random_batch_embedding = X_test[random_index]
+# Random label 
 random_batch_classes = y_test[random_index]
 
 yhat = loaded_model.predict(random_batch_embedding)
