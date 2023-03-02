@@ -8,7 +8,7 @@ from matplotlib.patches import Circle
 # Examples of extracting face from raw images using MTCNN
 
 detector = MTCNN()
-raw_img_url = "D:\MTCNN\Raw_images"
+raw_img_url = ".\Raw_images"
 fig = plt.figure(figsize=(20,20))
 for img in range(1,6):
     random_name = np.random.choice([i for i in os.listdir(raw_img_url)])

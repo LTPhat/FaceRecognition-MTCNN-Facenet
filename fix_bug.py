@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import os
 from preprocessing import *
 detector = MTCNN()
-img = Image.open("D:\MTCNN\images\Duc\Duc0.png")
+img = Image.open(".\Raw_images\Duc\Duc0.png")
 img = np.array(img)
 result = detector.detect_faces(img)
 
@@ -18,7 +18,7 @@ image = image.resize((160, 160))
 face_array = np.asarray(image)
 print(face_array.shape)
 import os 
-a = os.listdir("D:\MTCNN\images\Duc")
+a = os.listdir(".\Raw_images\Duc")
 print(a)
 print(len(a))
 def load_face(dir):
@@ -28,6 +28,6 @@ def load_face(dir):
         img, resized_img = face_extract(path)
         faces.append(resized_img)
     return faces
-face = load_face("D:\MTCNN\Train\Duc")
+face = load_face(".\Train\Duc")
 print(face)
 print(len(face))
