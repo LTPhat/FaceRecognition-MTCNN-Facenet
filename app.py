@@ -8,19 +8,18 @@ import base64
 import warnings
 warnings.filterwarnings('ignore')
 import pickle
-import cv2
 from keras.utils import img_to_array, load_img
 from preprocessing import *
 from create_embedding import get_embedding
 from facenet_architecture import InceptionResNetV2
 
 facenet = InceptionResNetV2()
-path = "facenet_keras_weights.h5"
+path = "model\Facenet_keras_weights.h5"
 facenet.load_weights(path)
 
 name_list = ['Duc', 'HDuc', 'Hieu', 'Hung', 'Kien', 'Linh', 'Quan', 'Tan', 'Thang'
             ,'Truong', 'Tuan', 'Van', 'VietDuc','XuanAnh']
-file_name = "classify.sav"
+file_name = "model\classify.sav"
 loaded_model = pickle.load(open(file_name, "rb"))
 
 
@@ -28,6 +27,8 @@ def get_base64(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
     return base64.b64encode(data).decode()
+
+
 # Set background for local web
 def set_background(png_file):
     bin_str = get_base64(png_file)
@@ -40,11 +41,12 @@ def set_background(png_file):
     </style>
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
-set_background('Bg1.jpg')
+set_background('background/Bg1.jpg')
 
 def process_input(filename, target_size = (160,160)):
     """
-    Return resized 160x160 image and image file
+    Input: Image filename directory
+    Output: Resized 160x160 image and image file as array
     """
     img = load_img(filename)
     img_arr = np.array(img)
@@ -63,17 +65,25 @@ def process_input(filename, target_size = (160,160)):
 
 def embed_input(model, resized_arr):
     """
-    Convert resized_arr to embedded vector though face_net
+    Convert resized_arr to embedded vector through face_net
+    Input: Resized_arr of image
+    Output: Embedded vector 
     """
     embed_vector = get_embedding(facenet, resized_arr)
     return embed_vector
 
 def predict(model, embed_vector):
+    """
+    Input: Embedded vector extracted from image arr
+    Output: Probability of class, class
+    """
     sample = np.expand_dims(embed_vector, axis = 0)
     yhat_index  = model.predict(sample)
     yhat_prob = np.max(model.predict_proba(sample)[0])
     class_predict = name_list[yhat_index[0]]
     return yhat_prob, class_predict
+
+
 # def catch_face(imgfile):
 #     fig = plt.figure()
 #     img_load = Image.open(imgfile)
@@ -93,15 +103,20 @@ def predict(model, embed_vector):
 #     # plt.show()
 #     fig.savefig('catchface'+'\{}'.format(imgfile))
 #     return imgfile
+
 def main():
     st.markdown("<h2 style='text-align:center; color: yellow;'>Face Recogniton With MTCNN And Facenet</h2>",
                 unsafe_allow_html=True)
+    
+
     html_class_term = """
     <div style="background-color: white ;padding:5px; margin: 20px">
     <h5 style="color:black;text-align:center; font-size: 10 px"> There are 14 classes in the dataset: ['Duc', 'HDuc', 'Hieu', 'Hung', 'Kien', 'Linh', 'Quan', 'Tan', 'Thang'
             ,'Truong', 'Tuan', 'Van', 'VietDuc', 'XuanAnh']</h5>
     """
     st.markdown(html_class_term, unsafe_allow_html=True)
+
+
     html_temp = """
        <div style="background-color: brown ;padding:5px">
        <h3 style="color:black;text-align:center; font-size: 15 px"> Click the below button to upload image.</h3>
@@ -109,6 +124,8 @@ def main():
        """
     st.markdown(html_temp, unsafe_allow_html=True)
     st.markdown("")
+
+
     uploaded_file = st.file_uploader("Choose image file", accept_multiple_files=False)
     if uploaded_file is not None:
         st.write("File uploaded:", uploaded_file.name)
@@ -117,6 +134,8 @@ def main():
         save_dir = "image_from_user"
         with open(os.path.join(save_dir, uploaded_file.name), "wb") as f:
             f.write(uploaded_file.getbuffer())
+
+
     if st.button("Predict"):
         saveimg_dir = "image_from_user" + "\{}".format(uploaded_file.name)
         image, resized_arr = process_input(saveimg_dir)
