@@ -2,10 +2,10 @@ from preprocessing import *
 from facenet_architecture import InceptionResNetV2
 import numpy as np
 facenet = InceptionResNetV2()
-path = "facenet_keras_weights.h5"
+path = "model\Facenet_keras_weights.h5"
 facenet.load_weights(path)
 
-data = np.load('faces-dataset.npz',allow_pickle=True)
+data = np.load('model\Faces-dataset.npz',allow_pickle=True)
 train_X, train_y, test_X, test_y = data['a'], data['b'], data['c'], data['d']
 
 # get the face embedding for one face
