@@ -5,10 +5,13 @@ from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 import pickle
 
-data  = np.load("face-dataset-embedding.npz")
+data  = np.load("model\Face-dataset-embedding.npz")
 
 X_train , y_train , X_test, y_test = data["a"], data["b"], data["c"], data["d"]
 def encoder():
+    """
+    Encoder dataset loaded from npz for classifing
+    """
     in_encoder = Normalizer(norm='l2')
     X_train_encode = in_encoder.transform(X_train)
     X_test_encode = in_encoder.transform(X_test)

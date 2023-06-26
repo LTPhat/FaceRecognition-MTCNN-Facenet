@@ -5,8 +5,8 @@ import os
 def extract_frame():
     name_list = ['Duc', 'HDuc', 'Hieu', 'Hung', 'Kien', 'Linh', 'Quan', 'Tan', 'Thang'
             ,'Truong', 'Tuan', 'Van', 'VietDuc','XuanAnh']
-    root_url = "D:\MTCNN\Video" 
-    img_folder = "D:\MTCNN\Raw_images\\"
+    root_url = "MTCNN\Video" 
+    img_folder = "MTCNN\Raw_images\\"
     for name in name_list:
         video = root_url+ "\\" + name + ".mp4"
         vidcap = cv2.VideoCapture(video)
@@ -23,3 +23,5 @@ def extract_frame():
             leaf += 1
             if count < 0:
                 break
+if __name__ == "__main__":
+    extract_frame()

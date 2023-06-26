@@ -7,7 +7,7 @@ from train import X_train, y_train, X_test, y_test
 import seaborn as sns
 from create_embedding import train_X, train_y, test_X, test_y
 
-file_name = "classify.sav"
+file_name = "model\classify.sav"
 loaded_model = pickle.load(open(file_name, "rb"))
 
 yhat = loaded_model.predict(X_test)     #predict index
