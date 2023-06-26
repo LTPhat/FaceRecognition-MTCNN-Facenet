@@ -1,5 +1,4 @@
 # Face Recognition With MTCNN And FaceNet
-Personal project for ``CourseWork 2`` in AI4E course.
 
 `Finished time:` 03/12/2022.
 
