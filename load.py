@@ -1,15 +1,20 @@
 from preprocessing import *
 import sys
 import os
-sys.path.append("D:\MTCNN")
+sys.path.append("\MTCNN")
 
-root_url = "D:\MTCNN"
-root_raw_img = "D:\MTCNN\Raw_images"
+root_url = "\MTCNN"
+root_raw_img = "\MTCNN\Raw_images"
 detector = MTCNN()
 name_list = ['Duc', 'HDuc', 'Hieu', 'Hung', 'Kien', 'Linh', 'Quan', 'Tan', 'Thang'
             ,'Truong', 'Tuan', 'Van', 'VietDuc','XuanAnh']
 
 def load_face(dir):
+    """
+    load_face from an image directory
+    Input: Image directory
+    Output: faces - list of resized arr of image
+    """
     faces = list()  #Store img arr
     for filename in os.listdir(dir):
         path = dir + "\\" + filename
@@ -20,6 +25,13 @@ def load_face(dir):
     return faces
 
 def load_dataset(dir):
+    """
+    Load dataset from train/ test folder processed
+    Input: Folder directory
+    Output: 
+    - X: Array which element is np.array represent resized image
+    - Y: Label of X
+    """
     X, y = list(), list()
     for subdir in os.listdir(dir):
         path = dir + "\\" + subdir  
@@ -32,13 +44,13 @@ def load_dataset(dir):
 
 if __name__ == "__main__":
     # Change link if we use new dataset
-    train_X, train_y = load_dataset('D:\MTCNN\Train')
+    train_X, train_y = load_dataset('MTCNN\Train')
     print(train_X.shape, train_y.shape)
     # Similarly with new testset
-    test_X, test_y = load_dataset('D:\MTCNN\Test')
+    test_X, test_y = load_dataset('MTCNN\Test')
     print(test_X.shape, test_y.shape)
     # save arrays to one file in compressed format
-    np.savez_compressed('faces-dataset.npz', a = train_X, b = train_y, c = test_X, d = test_y)
+    np.savez_compressed('model\Faces-dataset.npz', a = train_X, b = train_y, c = test_X, d = test_y)
     print("Train_X shape: {}".format(train_X.shape))
     print("Train_y shape: {}".format(train_y.shape))
     print("Test_X shape: {}".format(test_X.shape))
